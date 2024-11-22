@@ -46,7 +46,7 @@ After the installation is completed you should have the `spotify-cleaner` usable
 
 ## Configurations
 
-If you wish to modify the utility (e.g., path, logic, cache size threshold), you can edit the file located at `src/main.lua`.
+If you wish to modify the utility (e.g., path, cache size, etc.), you can edit the file located at `src/main.lua`.
 
 Also, make sure the Lua interpreter version on your system matches the version used during compilation (as specified in the `Makefile`). If you're unsure, check for the Lua library in `/usr/lib/x86_64-linux-gnu`. If it's missing, you can install it by running: `sudo apt install liblua5.4-dev`, or the version of your Lua interpreter.
 
