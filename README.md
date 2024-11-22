@@ -32,16 +32,23 @@ To install this utility, simply run the following commands:
 ```bash
 git clone https://github.com/joseareia/spotify-cleaner
 cd spotify-cleaner
-make
-make install
+sudo make install
+sudo make clean % If you want to clean the project directory.
+sudo make uninstall % If you want to uninstall the utility.
 ```
 
-Once installed, you can safely remove the cloned repository.
+If you need to run `luastatic` with `sudo`, you may have to add its path to the `secure_path` in the `sudoers` file. This allows `sudo` to recognize and execute the `luastatic` command.
 
-> [!NOTE]
-> If you wish to modify the utility (e.g., path, logic, cache size threshold), you can edit the file located at `src/main.lua`.
->
-> Also, make sure the Lua interpreter version on your system matches the version used during compilation (as specified in the `Makefile`). If you're unsure, check for the Lua library in `/usr/lib/x86_64-linux-gnu`. If it's missing, you can install it by running: `sudo apt install liblua5.4-dev`, or the version of your Lua interpreter.
+> [!WARNING]
+> This method is a quick workaround, but it's not recommended for security reasons. Adding executable paths to `secure_path` should be done with caution. A safer approach would be to configure `luastatic` to be available system-wide without needing `sudo`.
+
+After the installation is completed you should have the `spotify-cleaner` usable system-wide and a new `cronjob` (that checks the cache size every five hours) created! After that, you can safely remove the cloned repository.
+
+## Configurations
+
+If you wish to modify the utility (e.g., path, logic, cache size threshold), you can edit the file located at `src/main.lua`.
+
+Also, make sure the Lua interpreter version on your system matches the version used during compilation (as specified in the `Makefile`). If you're unsure, check for the Lua library in `/usr/lib/x86_64-linux-gnu`. If it's missing, you can install it by running: `sudo apt install liblua5.4-dev`, or the version of your Lua interpreter.
 
 ## Getting Help
 If you have any questions regarding the utility, its usage, or encounter any errors you're struggling with, please feel free to open an issue in this repository, or contact me via email at <a href="mailto:jose.apareia@gmail.com">jose.apareia@gmail.com</a>.
