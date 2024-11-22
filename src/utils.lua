@@ -1,3 +1,4 @@
+-- @module src.utils
 local utils = {}
 
 -- Check if a directory exists.
@@ -21,6 +22,16 @@ function utils.get_directory_size(directory)
     else
         return nil, "[ ERROR ] Failed to calculate size."
     end
+end
+
+-- Get the username in which the program is being executed.
+function utils.get_username()
+    username = os.getenv("USER") or os.getenv("LOGNAME")
+    if not username then
+        print("[ ERROR ] Unable to determine the username.")
+        return nil
+    end
+    return username
 end
 
 return utils
