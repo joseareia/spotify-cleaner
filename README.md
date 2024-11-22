@@ -17,7 +17,7 @@ P.S.: I know Spotify allows you to set a cache limit, but where’s the fun in t
 
 This project requires the following utilities:
 1. **Lua**
-The programming language used for this project. You can download and install Lua from its [official website](https://www.lua.org/download.html). **NOTE:** After following the installation steps on Lua's website, don't forget to run `make install` after executing `make all test`. Additionally, consider installing [`luarocks`](http://luarocks.org), a package manager for Lua modules.
+The programming language used for this project. You can download and install Lua from its [official website](https://www.lua.org/download.html). **Tip:** After following the installation steps on Lua's website, don't forget to run `make install` after executing `make all test`. Additionally, consider installing [`luarocks`](http://luarocks.org), a package manager for Lua modules.
 
 2. **Luastatic**
 A command-line tool that compiles a Lua program into a standalone executable. Learn more and install it from [GitHub](https://github.com/ers35/luastatic) or via [luarocks](http://luarocks.org/modules/ers35/luastatic).
