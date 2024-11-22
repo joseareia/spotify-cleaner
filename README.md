@@ -2,6 +2,8 @@
 [![made-with-lua](https://img.shields.io/badge/Made%20with-Lua-1f425f.svg?color=blue)](https://www.lua.org/)
 [![GitHub license](https://img.shields.io/badge/License-GPL_3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html#license-text)
 
+A simple utility that cleans the Spotify cache based on a user-defined threshold. Simple, right?
+
 ## Why?
 Spotify is notorious for creating a cache that can grow significantly over time. Sure, you can manually clear it via Spotify's app settings by pressing `Clear Cache`, but let’s face it — I’m lazy. To address this, I created a simple Lua utility that automatically clears the cache when it exceeds 100 MB.
 
@@ -15,20 +17,13 @@ P.S.: I know Spotify allows you to set a cache limit, but where’s the fun in t
 
 This project requires the following utilities:
 1. **Lua**
-The programming language used for this project. You can download and install Lua from its [official website](https://www.lua.org/download.html).
-
-> [!TIP]
-> After following the installation steps on Lua's website, don't forget to run `make install` after executing `make all test`. Additionally, consider installing [`luarocks`](http://luarocks.org), a package manager for Lua modules.
+The programming language used for this project. You can download and install Lua from its [official website](https://www.lua.org/download.html). **NOTE:** After following the installation steps on Lua's website, don't forget to run `make install` after executing `make all test`. Additionally, consider installing [`luarocks`](http://luarocks.org), a package manager for Lua modules.
 
 2. **Luastatic**
 A command-line tool that compiles a Lua program into a standalone executable. Learn more and install it from [GitHub](https://github.com/ers35/luastatic) or via [luarocks](http://luarocks.org/modules/ers35/luastatic).
 
 3. **Make** 
-A build automation tool. If it’s not already installed, you can install it on most Linux (debian-based) systems with:
-
-```bash
-sudo apt install make
-```
+A build automation tool. If it’s not already installed, you can install it on most Linux (debian-based) systems with: `sudo apt install make`.
 
 ## Installation
 
