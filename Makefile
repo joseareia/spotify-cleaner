@@ -5,6 +5,8 @@
 
 PROG_NAME=spotify-cleaner
 LUA_INTERPRETER_VERSION=liblua5.4.a
+INSTALL_DIR=/usr/local/bin
+CRON_FILE=/etc/cron.d/spotify-cleaner
 
 all:
 	@echo "[ INFO ] Starting compilation of the utility. Using '$(LUA_INTERPRETER_VERSION)' Lua interpreter."
@@ -16,4 +18,23 @@ clean:
 	@rm *.c src/bin/spotify-cleaner
 	@echo "[ SUCCESS ] Cleanup completed."
 
-# TODO: Make install globally and write in crontab.
+install: all
+	@if [ "$$(id -u)" -ne 0 ]; then \
+		echo "[ ERROR ] Installation requires superuser privileges. Please run 'sudo make install'."; \
+		exit 1; \
+	fi
+	
+	@echo "[ INFO ] Installing '$(PROG_NAME)' to $(INSTALL_DIR)."
+	@install -m 0755 src/bin/spotify-cleaner $(INSTALL_DIR)/$(PROG_NAME)
+	@echo "[ SUCCESS ] Installation completed."
+	@echo "[ INFO ] Setting up a cron job for '$(PROG_NAME)'."
+	@echo "0 */5 * * * root $(INSTALL_DIR)/$(PROG_NAME)" > $(CRON_FILE)
+	@chmod 0644 $(CRON_FILE)
+	@echo "[ SUCCESS ] Cron job installed."
+
+uninstall:
+	@echo "[ INFO ] Removing '$(PROG_NAME)' from $(INSTALL_DIR)."
+	@rm -f $(INSTALL_DIR)/$(PROG_NAME)
+	@echo "[ INFO ] Removing cron job for '$(PROG_NAME)'."
+	@rm -f $(CRON_FILE)
+	@echo "[ SUCCESS ] Uninstallation completed."
