@@ -32,6 +32,7 @@ To install this utility, simply run the following commands:
 ```bash
 git clone https://github.com/joseareia/spotify-cleaner
 cd spotify-cleaner
+sudo chmod +x configure.sh ; ./configure
 sudo make install
 sudo make clean % If you want to clean the project directory.
 sudo make uninstall % If you want to uninstall the utility.
