@@ -16,7 +16,7 @@ NOK="[ ${CLR_RED}NOK${CLR_RESET} ]"
 
 # Clean up temporary files on exit.
 cleanup() {
-    rm -f lua-5.3.5.tar.gz luarocks-3.11.1.tar.gz
+    rm -f lua-5.4.7.tar.gz luarocks-3.11.1.tar.gz
 }
 trap cleanup EXIT
 
@@ -36,8 +36,8 @@ check_and_install() {
 download_and_extract() {
     local url="$1"
     local tar_file="$2"
-    echo -e "${OK} Downloading ${CLR_YELLOW}$tar_file${CLR_RESET}."
-    curl -R -O "$url"
+    echo -e "${OK} Downloading $tar_file."
+    curl -s -S -L -R -O "$url"
     tar -zxf "$tar_file"
     cd "${tar_file%.tar.gz}" || exit
 }
@@ -53,7 +53,7 @@ check_gcc() {
 check_lua() {
     if ! command -v lua >/dev/null 2>&1; then
         echo -e "${NOK} The package ${CLR_YELLOW}lua${CLR_RESET} is not installed. Installing it."
-        download_and_extract "http://www.lua.org/ftp/lua-5.3.5.tar.gz" "lua-5.3.5.tar.gz"
+        download_and_extract "http://www.lua.org/ftp/lua-5.4.7.tar.gz" "lua-5.4.7.tar.gz"
         make linux test
         sudo make install
         echo -e "${OK} The package ${CLR_YELLOW}lua${CLR_RESET} installed successfully."
