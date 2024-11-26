@@ -75,12 +75,22 @@ check_luarocks() {
     else
         echo -e "${OK} The package ${CLR_YELLOW}luarocks${CLR_RESET} is already installed."
     fi
+
+    local luarocks_bin_path="$HOME/.luarocks/bin"
+    if ! grep -q "$luarocks_bin_path" "$HOME/.bashrc"; then
+        echo -e "${OK} Adding ${CLR_YELLOW}luarocks{CLR_RESET} to the PATH."
+        echo "export PATH=\$PATH:$luarocks_bin_path" >> "$HOME/.bashrc"
+        source "$HOME/.bashrc"
+        echo -e "${OK} PATH updated and sourced successfully."
+    else
+        echo -e "${OK} Package ${CLR_YELLOW}$luarocks${CLR_RESET} is already in PATH."
+    fi
 }
 
 check_luastatic() {
     if ! command -v luastatic >/dev/null 2>&1; then
         echo -e "${NOK} The package ${CLR_YELLOW}luastatic${CLR_RESET} is not installed. Installing it via Luarocks."
-        luarocks install luastatic >/dev/null 2>&1
+        luarocks --local install luastatic >/dev/null 2>&1
         echo -e "${OK} The package ${CLR_YELLOW}luastatic${CLR_RESET} was installed successfully."
     else
         echo -e "${OK} The package ${CLR_YELLOW}luastatic${CLR_RESET} is already installed."
