@@ -67,7 +67,7 @@ check_luarocks() {
     if ! command -v luarocks >/dev/null 2>&1; then
         echo -e "${NOK} The package ${CLR_YELLOW}luarocks${CLR_RESET} is not installed. Installing it."
         download_and_extract "http://luarocks.github.io/luarocks/releases/luarocks-3.11.1.tar.gz" "luarocks-3.11.1.tar.gz"
-        ./configure --with-lua-include=/usr/local/include
+        ./configure --with-lua-include=/usr/local/include >/dev/null 2>&1
         make >/dev/null 2>&1
         sudo make install >/dev/null 2>&1
         echo -e "${OK} The package ${CLR_YELLOW}luarocks${CLR_RESET} was installed successfully."
