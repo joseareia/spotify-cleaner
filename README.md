@@ -23,7 +23,7 @@ This project requires the following utilities:
 3. **Make**: A build automation tool. If it’s not already installed, you can install it on most Linux (debian-based) systems with: `sudo apt install make`.
 
 > [!TIP]
-> By running the `configure` script, all theses dependencies will be checked and if needed, they will be installed for you 😉
+> By running the `configure` binary, all these dependencies will be checked, and, if needed, they will be installed for you 😉
 
 ## Installation
 
