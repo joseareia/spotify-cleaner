@@ -16,26 +16,24 @@ P.S.: I know Spotify allows you to set a cache limit, but where’s the fun in t
 ## Dependecies
 
 This project requires the following utilities:
-1. **Lua**
-The programming language used for this project. You can download and install Lua from its [official website](https://www.lua.org/download.html). **Tip:** After following the installation steps on Lua's website, don't forget to run `make install` after executing `make all test`. Additionally, consider installing [`luarocks`](http://luarocks.org), a package manager for Lua modules.
+1. **Lua**: The programming language used for this project. You can download and install Lua from its [official website](https://www.lua.org/download.html).
 
-2. **Luastatic**
-A command-line tool that compiles a Lua program into a standalone executable. Learn more and install it from [GitHub](https://github.com/ers35/luastatic) or via [luarocks](http://luarocks.org/modules/ers35/luastatic).
+2. **Luastatic**: A command-line tool that compiles a Lua program into a standalone executable. Learn more and install it from [GitHub](https://github.com/ers35/luastatic) or via [luarocks](http://luarocks.org/modules/ers35/luastatic).
 
-3. **Make** 
-A build automation tool. If it’s not already installed, you can install it on most Linux (debian-based) systems with: `sudo apt install make`.
+3. **Make**: A build automation tool. If it’s not already installed, you can install it on most Linux (debian-based) systems with: `sudo apt install make`.
+
+> [!TIP]
+> By running the `configure` script, all theses dependencies will be checked and if needed, they will be installed for you 😉
 
 ## Installation
 
-To install this utility, simply run the following commands:
+To install and therefore use this utility, simply run the following commands:
 
 ```bash
 git clone https://github.com/joseareia/spotify-cleaner
 cd spotify-cleaner
-sudo chmod +x configure.sh ; ./configure
+sudo chmod +x configure ; ./configure
 sudo make install
-sudo make clean % If you want to clean the project directory.
-sudo make uninstall % If you want to uninstall the utility.
 ```
 
 If you need to run `luastatic` with `sudo`, you may have to add its path to the `secure_path` in the `sudoers` file. This allows `sudo` to recognize and execute the `luastatic` command.
@@ -45,11 +43,18 @@ If you need to run `luastatic` with `sudo`, you may have to add its path to the 
 
 After the installation is completed you should have the `spotify-cleaner` usable system-wide and a new `cronjob` (that checks the cache size every five hours) created! After that, you can safely remove the cloned repository.
 
-## Configurations
+## Additional Configurations
 
 If you wish to modify the utility (e.g., path, cache size, etc.), you can edit the file located at `src/main.lua`.
 
 Also, make sure the Lua interpreter version on your system matches the version used during compilation (as specified in the `Makefile`). If you're unsure, check for the Lua library in `/usr/lib/x86_64-linux-gnu`. If it's missing, you can install it by running: `sudo apt install liblua5.4-dev`, or the version of your Lua interpreter.
+
+If you desire to unninstall and/or clean the working directory consider using the following commands:
+
+```bash
+sudo make clean % If you want to clean the project directory.
+sudo make uninstall % If you want to uninstall the utility.
+```
 
 ## Getting Help
 If you have any questions regarding the utility, its usage, or encounter any errors you're struggling with, please feel free to open an issue in this repository, or contact me via email at <a href="mailto:jose.apareia@gmail.com">jose.apareia@gmail.com</a>.
