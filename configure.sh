@@ -79,11 +79,9 @@ check_luarocks() {
     local luarocks_bin_path="$HOME/.luarocks/bin"
     if ! grep -q "$luarocks_bin_path" "$HOME/.bashrc"; then
         echo -e "${OK} Adding ${CLR_YELLOW}luarocks${CLR_RESET} to the PATH."
-        echo "export PATH=$luarocks_bin_path/:$PATH" >> "$HOME/.bashrc"
+        echo "export PATH=\"$luarocks_bin_path/:\$PATH\"" >> "$HOME/.bashrc"
         source "$HOME/.bashrc"
         echo -e "${OK} PATH updated and sourced successfully."
-    else
-        echo -e "${OK} Package ${CLR_YELLOW}$luarocks${CLR_RESET} is already in PATH."
     fi
 }
 
