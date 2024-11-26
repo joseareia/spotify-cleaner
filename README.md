@@ -33,7 +33,7 @@ To install and therefore use this utility, simply run the following commands:
 
 ```bash
 curl -L https://github.com/joseareia/spotify-cleaner/archive/refs/tags/v1.0.0.tar.gz -o spotify-cleaner.tar.gz
-tar -xvf spotify-cleaner.tar.gz
+mkdir spotify-cleaner && tar -xvf spotify-cleaner.tar.gz -C spotify-cleaner --strip-components=1
 cd spotify-cleaner
 sudo chmod +x configure ; ./configure
 sudo make install
