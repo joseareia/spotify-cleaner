@@ -54,8 +54,8 @@ check_lua() {
     if ! command -v lua >/dev/null 2>&1; then
         echo -e "${NOK} The package ${CLR_YELLOW}lua${CLR_RESET} is not installed. Installing it."
         download_and_extract "http://www.lua.org/ftp/lua-5.4.7.tar.gz" "lua-5.4.7.tar.gz"
-        make linux test
-        sudo make install
+        make linux test >/dev/null 2>&1
+        sudo make install >/dev/null 2>&1
         echo -e "${OK} The package ${CLR_YELLOW}lua${CLR_RESET} installed successfully."
         cd ..
     else
@@ -68,8 +68,8 @@ check_luarocks() {
         echo -e "${NOK} The package ${CLR_YELLOW}luarocks${CLR_RESET} is not installed. Installing it."
         download_and_extract "http://luarocks.github.io/luarocks/releases/luarocks-3.11.1.tar.gz" "luarocks-3.11.1.tar.gz"
         ./configure --with-lua-include=/usr/local/include
-        make
-        sudo make install
+        make >/dev/null 2>&1
+        sudo make install >/dev/null 2>&1
         echo -e "${OK} The package ${CLR_YELLOW}luarocks${CLR_RESET} was installed successfully."
         cd ..
     else
@@ -80,7 +80,7 @@ check_luarocks() {
 check_luastatic() {
     if ! command -v luastatic >/dev/null 2>&1; then
         echo -e "${NOK} The package ${CLR_YELLOW}luastatic${CLR_RESET} is not installed. Installing it via Luarocks."
-        luarocks install luastatic
+        luarocks install luastatic >/dev/null 2>&1
         echo -e "${OK} The package ${CLR_YELLOW}luastatic${CLR_RESET} was installed successfully."
     else
         echo -e "${OK} The package ${CLR_YELLOW}luastatic${CLR_RESET} is already installed."
