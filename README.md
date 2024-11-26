@@ -1,6 +1,8 @@
 # Spotify Cleaner
 [![made-with-lua](https://img.shields.io/badge/Made%20with-Lua-1f425f.svg?color=blue)](https://www.lua.org/)
 [![GitHub license](https://img.shields.io/badge/License-GPL_3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html#license-text)
+[![Release](https://img.shields.io/badge/Release-v1.0.0-green.svg)](https://github.com/joseareia/spotify-cleaner/releases)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)](https://github.com/joseareia/spotify-cleaner/graphs/commit-activity)
 
 A simple utility that cleans the Spotify cache based on a user-defined threshold. Simple, right?
 
@@ -30,7 +32,8 @@ This project requires the following utilities:
 To install and therefore use this utility, simply run the following commands:
 
 ```bash
-git clone https://github.com/joseareia/spotify-cleaner
+curl -L https://github.com/joseareia/spotify-cleaner/archive/refs/tags/v1.0.0.tar.gz -o spotify-cleaner.tar.gz
+tar -xvf spotify-cleaner.tar.gz
 cd spotify-cleaner
 sudo chmod +x configure ; ./configure
 sudo make install
@@ -41,7 +44,7 @@ If you need to run `luastatic` with `sudo`, you may have to add its path to the 
 > [!WARNING]
 > This method is a quick workaround, but it's not recommended for security reasons. Adding executable paths to `secure_path` should be done with caution. A safer approach would be to configure `luastatic` to be available system-wide without needing `sudo`.
 
-After the installation is completed you should have the `spotify-cleaner` usable system-wide and a new `cronjob` (that checks the cache size every five hours) created! After that, you can safely remove the cloned repository.
+After the installation is completed you should have the `spotify-cleaner` usable system-wide and a new `cronjob` (that checks the cache size every five hours) created! After that, **you can safely remove both `tar` and the project repository downloaded.**
 
 ## Additional Configurations
 
