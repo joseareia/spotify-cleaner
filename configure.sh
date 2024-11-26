@@ -16,7 +16,7 @@ NOK="[ ${CLR_RED}NOK${CLR_RESET} ]"
 
 # Clean up temporary files on exit.
 cleanup() {
-    rm -f lua-5.4.7.tar.gz luarocks-3.11.1.tar.gz
+    sudo rm -r lua*
 }
 trap cleanup EXIT
 
@@ -25,7 +25,7 @@ check_and_install() {
     local package="$1"
     if ! command -v "$package" >/dev/null 2>&1; then
         echo -e "${NOK} The package ${CLR_YELLOW}$package${CLR_RESET} is not installed. Installing."
-        sudo apt-get -y update && sudo apt-get -y install "$package" "build-essential"
+        sudo apt-get -y update && sudo apt-get -y install "$package" "build-essential" "liblua5.4-dev"
         echo -e "${OK} The package ${CLR_YELLOW}$package${CLR_RESET} was installed successfully."
     else
         echo -e "${OK} The package ${CLR_YELLOW}$package${CLR_RESET} is already installed."
