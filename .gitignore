@@ -59,3 +59,7 @@ luac.out
 # Ignore all local history of files
 .history
 .ionide
+
+### SHC ###
+configure.sh
+configure.sh.x.c
