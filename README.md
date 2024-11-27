@@ -1,7 +1,7 @@
 # Spotify Cleaner
 [![made-with-lua](https://img.shields.io/badge/Made%20with-Lua-1f425f.svg?color=blue)](https://www.lua.org/)
 [![GitHub license](https://img.shields.io/badge/License-GPL_3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html#license-text)
-[![Release](https://img.shields.io/badge/Release-v1.1.0-green.svg)](https://github.com/joseareia/spotify-cleaner/releases)
+[![Release](https://img.shields.io/badge/Release-v1.1.1-green.svg)](https://github.com/joseareia/spotify-cleaner/releases)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)](https://github.com/joseareia/spotify-cleaner/graphs/commit-activity)
 
 A simple utility that cleans the Spotify cache based on a user-defined threshold. Simple, right?
@@ -25,39 +25,34 @@ This project requires the following utilities:
 3. **Make**: A build automation tool. If it’s not already installed, you can install it on most Linux (debian-based) systems with: `sudo apt install make`.
 
 > [!TIP]
-> By running the `configure` binary, all these dependencies will be checked, and, if needed, they will be installed for you 😉
+> By running the `configure` binary, all these dependencies will be checked, and, if needed, they will be installed for you. Even the default directory of the storage and data files of Spotify.
 
 ## Installation
 
-To install and therefore use this utility, simply run the following commands:
+To install, and therefore use this utility, first download the most [recent release](https://github.com/joseareia/spotify-cleaner/releases). Then simply run the following commands:
 
 ```bash
-curl -L https://github.com/joseareia/spotify-cleaner/archive/refs/tags/v1.1.0.tar.gz -o spotify-cleaner.tar.gz
-mkdir spotify-cleaner && tar -xvf spotify-cleaner.tar.gz -C spotify-cleaner --strip-components=1
-cd spotify-cleaner
-sudo chmod +x configure ; ./configure
+./configure
+```
+This command will check every dependency that you may need in your system, and it will install everything for you. After that, just run:
+
+```bash
 sudo make install
 ```
 
-If you need to run `luastatic` with `sudo`, you may have to add its path to the `secure_path` in the `sudoers` file. This allows `sudo` to recognize and execute the `luastatic` command.
-
-> [!WARNING]
-> This method is a quick workaround, but it's not recommended for security reasons. Adding executable paths to `secure_path` should be done with caution. A safer approach would be to configure `luastatic` to be available system-wide without needing `sudo`.
-
-After the installation is completed you should have the `spotify-cleaner` usable system-wide and a new `cronjob` (that checks the cache size every five hours) created! After that, **you can safely remove both `tar` and the project repository downloaded.**
+After the installation is completed you should have the `spotify-cleaner` usable system-wide and a new `cronjob` (that checks the cache size every five hours) created! After that, **you can safely remove the project release downloaded.**
 
 ## Additional Configurations
 
-If you wish to modify the utility (e.g., path, cache size, etc.), you can edit the file located at `src/main.lua`.
+If you wish to modify the utility (e.g., path, cache size, etc.), you can edit the file located at `src/main.lua` and then proceed again with the installation steps.
 
-Also, make sure the Lua interpreter version on your system matches the version used during compilation (as specified in the `Makefile`). If you're unsure, check for the Lua library in `/usr/lib/x86_64-linux-gnu`. If it's missing, you can install it by running: `sudo apt install liblua5.4-dev`, or the version of your Lua interpreter.
-
-If you desire to unninstall and/or clean the working directory consider using the following commands:
+If you desire to unninstall the utility, you can simply run:
 
 ```bash
-sudo make clean % If you want to clean the project directory.
-sudo make uninstall % If you want to uninstall the utility.
+sudo make uninstall
 ```
+
+This command will remove both the `spotify-cleaner` utility installed system-wide and the `cronjob` created during the installation process.
 
 ## Getting Help
 If you have any questions regarding the utility, its usage, or encounter any errors you're struggling with, please feel free to open an issue in this repository, or contact me via email at <a href="mailto:jose.apareia@gmail.com">jose.apareia@gmail.com</a>.
