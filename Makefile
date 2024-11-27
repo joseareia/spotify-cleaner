@@ -17,8 +17,10 @@ all:
 		echo "[ $(CLR_RED)NOK$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
 		exit 1; \
 	fi
-	
+
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Starting compilation of the utility. Using $(CLR_YELLOW)$(LUA_INTERPRETER_VERSION)$(CLR_RESET) Lua interpreter."
+	@mkdir -p src/bin >/dev/null 2>&1
+	@rm -f *.c src/bin/spotify-cleaner >/dev/null 2>&1
 	@luastatic src/main.lua src/utils.lua /usr/lib/x86_64-linux-gnu/$(LUA_INTERPRETER_VERSION) -o src/bin/spotify-cleaner >/dev/null 2>&1
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Compilation completed successfully."
 
@@ -29,7 +31,7 @@ clean:
 	fi
 
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Removing generated files and binaries."
-	@rm *.c src/bin/spotify-cleaner
+	@rm -f *.c src/bin/spotify-cleaner >/dev/null 2>&1
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Cleanup completed."
 
 install: all
@@ -39,7 +41,7 @@ install: all
 	fi
 
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Installing $(CLR_YELLOW)$(PROG_NAME)$(CLR_RESET) to $(INSTALL_DIR)."
-	@install -m +x src/bin/spotify-cleaner $(INSTALL_DIR)/$(PROG_NAME)
+	@install -m +x src/bin/spotify-cleaner $(INSTALL_DIR)/$(PROG_NAME) >/dev/null 2>&1
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Installation completed."
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Setting up a cron job for $(CLR_YELLOW)$(PROG_NAME)$(CLR_RESET)."
 	@echo "0 */5 * * * root $(INSTALL_DIR)/$(PROG_NAME)" > $(CRON_FILE)
@@ -53,7 +55,7 @@ uninstall:
 	fi
 
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Removing $(CLR_YELLOW)$(PROG_NAME)$(CLR_RESET) from $(INSTALL_DIR)."
-	@rm -f $(INSTALL_DIR)/$(PROG_NAME)
+	@rm -f $(INSTALL_DIR)/$(PROG_NAME) >/dev/null 2>&1
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Removing cron job for $(CLR_YELLOW)$(PROG_NAME)$(CLR_RESET)."
-	@rm -f $(CRON_FILE)
+	@rm -f $(CRON_FILE) >/dev/null 2>&1
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Uninstallation completed."
