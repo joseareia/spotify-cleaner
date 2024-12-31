@@ -1,6 +1,6 @@
 # Author: José Areia (jose.apareia@gmail.com)
 # Date: 2024-11-22
-# Version: 1.0.0
+# Version: 1.0.1
 # Dependencies: ["luastatic"]
 
 PROG_NAME=spotify-cleaner
@@ -14,7 +14,7 @@ CLR_RESET=\033[0m
 
 all:
 	@if [ "$$(id -u)" -ne 0 ]; then \
-		echo "[ $(CLR_RED)NOK$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
+		echo "[ $(CLR_RED)DEPEND$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
 		exit 1; \
 	fi
 
@@ -26,7 +26,7 @@ all:
 
 clean:
 	@if [ "$$(id -u)" -ne 0 ]; then \
-		echo "[ $(CLR_RED)NOK$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
+		echo "[ $(CLR_RED)DEPEND$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
 		exit 1; \
 	fi
 
@@ -36,7 +36,7 @@ clean:
 
 install: all
 	@if [ "$$(id -u)" -ne 0 ]; then \
-		echo "[ $(CLR_RED)NOK$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
+		echo "[ $(CLR_RED)DEPEND$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
 		exit 1; \
 	fi
 
@@ -50,7 +50,7 @@ install: all
 
 uninstall:
 	@if [ "$$(id -u)" -ne 0 ]; then \
-		echo "[ $(CLR_RED)NOK$(CLR_RESET) ] Installation requires superuser privileges. Please run 'sudo make install'."; \
+		echo "[ $(CLR_RED)DEPEND$(CLR_RESET) ] Operation requires superuser privileges. Please run 'sudo make install'."; \
 		exit 1; \
 	fi
 
