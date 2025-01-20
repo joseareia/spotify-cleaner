@@ -1,2 +1,7 @@
-*.lua   text eol=lf
-*.md    linguist-detectable
+# Lua files.
+*.lua   text
+
+# Markdown files.
+*.md    linguist-detectable=true
+*.md    linguist-language=Markdown
+*.md    linguist-documentation=false
