@@ -11,7 +11,7 @@ data_path = home_env .. '/.cache/spotify/Data'
 current_time = os.date("%Y-%m-%dT%X")
 
 -- Limit cache size in MB.
-limit_cache_size = 100
+limit_cache_size = 150
 
 -- Check if directory exists. If not (default logic) a try-out to get into a custom file setting will be done.
 if utils.directory_exists(cache_path) == nil then
