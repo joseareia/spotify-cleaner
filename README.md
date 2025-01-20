@@ -1,13 +1,13 @@
 # Spotify Cleaner
 [![made-with-lua](https://img.shields.io/badge/Made%20with-Lua-1f425f.svg?color=blue)](https://www.lua.org/)
 [![GitHub license](https://img.shields.io/badge/License-GPL_3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html#license-text)
-[![Release](https://img.shields.io/badge/Release-v1.1.2-green.svg)](https://github.com/joseareia/spotify-cleaner/releases)
+[![Release](https://img.shields.io/badge/Release-v1.1.3-green.svg)](https://github.com/joseareia/spotify-cleaner/releases)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)](https://github.com/joseareia/spotify-cleaner/graphs/commit-activity)
 
 A simple utility that cleans the Spotify cache based on a user-defined threshold. Simple, right?
 
 ## Why?
-Spotify is notorious for creating a cache that can grow significantly over time. Sure, you can manually clear it via Spotify's app settings by pressing `Clear Cache`, but let’s face it — I’m lazy. To address this, I created a simple Lua utility that automatically clears the cache when it exceeds 100 MB.
+Spotify is notorious for creating a cache that can grow significantly over time. Sure, you can manually clear it via Spotify's app settings by pressing `Clear Cache`, but let’s face it — I’m lazy. To address this, I created a simple Lua utility that automatically clears the cache when it exceeds 150 MB.
 
 But why **exactly** do I care about clearing Spotify’s cache? One day, I noticed Spotify consuming an absurd amount of CPU and memory. After investigating, I discovered that the app had accumulated over 3 GB of cache. Once I cleared it and restarted Spotify, the app stopped hogging system resources.
 
@@ -46,7 +46,7 @@ After the installation is completed you should have the `spotify-cleaner` usable
 
 If you wish to modify the utility (e.g., path, cache size, etc.), you can edit the file located at `src/main.lua` and then proceed again with the installation steps.
 
-If you desire to unninstall the utility, you can simply run:
+If you desire to uninstall the utility, you can simply run:
 
 ```console
 sudo make uninstall
