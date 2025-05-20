@@ -7,6 +7,7 @@ PROG_NAME=spotify-cleaner
 LUA_INTERPRETER_VERSION=liblua5.4.a
 INSTALL_DIR=/usr/local/bin
 CRON_FILE=/etc/cron.d/spotify-cleaner
+LOGROTATE_FILE=/etc/logrotate.d/spotify-cleaner
 
 USER=$$SUDO_USER
 
@@ -47,9 +48,11 @@ install: all
 	@install -m +x src/bin/spotify-cleaner $(INSTALL_DIR)/$(PROG_NAME) >/dev/null 2>&1
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Installation completed."
 	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Setting up a cron job for $(CLR_YELLOW)$(PROG_NAME)$(CLR_RESET)."
-	@echo "PATH=/usr/local/bin/:/usr/bin:/bin\n0 * * * * $(USER) $(PROG_NAME) >> /tmp/spotify-log-file" > $(CRON_FILE)
+	@echo "PATH=/usr/local/bin/:/usr/bin:/bin\n0 * * * * $(USER) $(PROG_NAME) >> /var/log/spotify-cleaner.log 2>&1" > $(CRON_FILE)
+	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Setting up a log rotate for $(CLR_YELLOW)$(PROG_NAME)$(CLR_RESET)."
+	@cp spotify-cleaner.logrotate $(LOGROTATE_FILE)
 	@chmod 0644 $(CRON_FILE)
-	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Cron job installed."
+	@echo "[ $(CLR_GREEN)OK$(CLR_RESET) ] Cron job and log rotation successfully configured."
 
 uninstall:
 	@if [ "$$(id -u)" -ne 0 ]; then \
