@@ -61,6 +61,6 @@ if data_size >= limit_cache_size then
     end
 else
     print(current_time ..
-    " spotify-cleaner: Dache not cleared (" ..
+    " spotify-cleaner: Data not cleared (" ..
     data_size .. "MB) as it is below the threshold (" .. limit_cache_size .. "MB).")
 end
