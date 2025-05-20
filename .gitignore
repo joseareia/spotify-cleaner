@@ -1,6 +1,7 @@
 ### Lua ###
 # Compiled Lua sources
 luac.out
+src/bin/spotify-cleaner
 
 # luarocks build files
 *.src.rock
@@ -39,7 +40,6 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
-
 
 ### VisualStudioCode ###
 .vscode/*
