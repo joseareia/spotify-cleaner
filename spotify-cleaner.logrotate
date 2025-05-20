@@ -1,0 +1,8 @@
+/var/log/spotify-cleaner.log {
+    weekly
+    missingok
+    rotate 4
+    compress
+    notifempty
+    create 644 USER USER
+}
