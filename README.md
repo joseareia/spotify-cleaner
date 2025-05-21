@@ -1,7 +1,7 @@
 # Spotify Cleaner
 [![made-with-lua](https://img.shields.io/badge/Made%20with-Lua-1f425f.svg?color=blue)](https://www.lua.org/)
 [![GitHub license](https://img.shields.io/badge/License-GPL_3.0-green.svg)](https://www.gnu.org/licenses/gpl-3.0.html#license-text)
-[![Release](https://img.shields.io/badge/Release-v1.1.4-green.svg)](https://github.com/joseareia/spotify-cleaner/releases)
+[![Release](https://img.shields.io/github/v/tag/joseareia/spotify-cleaner?style=flat-square&label=Release&color=green)](https://github.com/joseareia/spotify-cleaner/releases)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-Yes-green.svg)](https://github.com/joseareia/spotify-cleaner/graphs/commit-activity)
 
 A simple utility that cleans the Spotify cache based on a user-defined threshold. Simple, right?
